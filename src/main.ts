@@ -2,15 +2,12 @@ function updateClock() {
   const clockElement = document.getElementById("clock")!;
   const now = new Date();
 
-  let hours: string | number = now.getHours();
-  let minutes: string | number = now.getMinutes();
-  let seconds: string | number = now.getSeconds();
+  let hours: string = (now.getHours() % 12 || 12).toString();
+  let minutes: string = now.getMinutes().toString().padStart(2, '0'); 
 
-  hours = hours < 10 ? `0${hours}` : hours;
-  minutes = minutes < 10 ? `0${minutes}` : minutes;
-  seconds = seconds < 10 ? `0${seconds}` : seconds;
+  const period = now.getHours() >= 12 ? "PM" : "AM";
 
-  clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+  clockElement.textContent = `${hours}:${minutes} ${period}`;
 }
 
 setInterval(updateClock, 1000);
