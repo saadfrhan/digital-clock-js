@@ -2,8 +2,6 @@
 
 This is a simple Clock App using vanilla JavaScript. It shows current time and updates every second.
 
-<img src="./preview.png" />
-
 ## How to run
 
 ```
